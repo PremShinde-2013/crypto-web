@@ -13,8 +13,8 @@ const CoinCard = ({ id, name, img, symbol, price, currencySymbol = "₹" }) => (
     <VStack
       w={"52"}
       shadow={"lg"}
-      p={"8"}
       borderRadius={"lg"}
+      p={8}
       transition={"all 0.3s"}
       m={"4"}
       css={{

@@ -1,6 +1,7 @@
 import {
   Badge,
   Box,
+  Button,
   Container,
   HStack,
   Image,
@@ -32,6 +33,48 @@ const CoinDetails = () => {
   const [chartArray, setChartArray] = useState([]);
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
+  const btns = ["24h", "7d", "14d", "30d", "60d", "200d", "365d", "max"];
+  const switchChartStats = (key) => {
+    switch (key) {
+      case "24h":
+        setDays("24h");
+        setLoding(true);
+        break;
+      case "7d":
+        setDays("7d");
+        setLoding(true);
+        break;
+      case "14d":
+        setDays("14d");
+        setLoding(true);
+        break;
+      case "30d":
+        setDays("30d");
+        setLoding(true);
+        break;
+      case "60d":
+        setDays("60d");
+        setLoding(true);
+        break;
+      case "200d":
+        setDays("200d");
+        setLoding(true);
+        break;
+      case "365d":
+        setDays("365d");
+        setLoding(true);
+        break;
+      case "max":
+        setDays("max");
+        setLoding(true);
+        break;
+
+      default:
+        setDays("24h");
+        setLoding(true);
+        break;
+    }
+  };
   const params = useParams();
   useEffect(() => {
     const fetchCoin = async () => {
@@ -40,7 +83,7 @@ const CoinDetails = () => {
         const { data: chartData } = await axios.get(
           `${server}/coins/${params.id}/market_chart?vs_currency=${currency}&days=${days}`
         );
-        console.log(chartData);
+        // console.log(chartData);
         setChartArray(chartData.prices);
         setCoin(data);
         setLoding(false);
@@ -50,7 +93,7 @@ const CoinDetails = () => {
       }
     };
     fetchCoin();
-  }, [params.id]);
+  }, [params.id, currency, days]);
   if (error) return <Error message={"Error while fetching Coin"} />;
 
   return (
@@ -59,11 +102,17 @@ const CoinDetails = () => {
         <Loader />
       ) : (
         <>
-          <Box width={"full"} borderWidth={1}>
+          <Box width={"full"} borderWidth={1} paddingTop={24}>
             <Chart arr={chartArray} currency={currencySymbol} days={days} />
           </Box>
-          {/* button */}
 
+          <HStack p={4} overflowX={"auto"}>
+            {btns.map((i) => (
+              <Button key={i} onClick={() => switchChartStats(i)}>
+                {i}
+              </Button>
+            ))}
+          </HStack>
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <HStack spacing={"4"}>
               <Radio value={"inr"}>₹ (INR)</Radio>

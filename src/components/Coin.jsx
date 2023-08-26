@@ -58,7 +58,7 @@ const Coin = () => {
         <Loader />
       ) : (
         <>
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
+          <RadioGroup value={currency} onChange={setCurrency} p={"24"}>
             <HStack spacing={"4"}>
               <Radio value={"inr"}>₹ (INR)</Radio>
               <Radio value={"usd"}>$ (USD)</Radio>
