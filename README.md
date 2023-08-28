@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Crypto Web Application
 
 Welcome to the Crypto Web Application! This project is a simple cryptocurrency tracker built using React, Chakra UI, and the CoinGecko API.
@@ -21,13 +21,13 @@ Before you begin, make sure you have the following installed:
 1. Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/crypto-web-app.git
+git clone https://github.com/PremShinde-2013/crypto-web.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd crypto-web-app
+cd crypto-web
 ```
 
 3. Install the required dependencies:
@@ -67,13 +67,8 @@ npm start
 - [Chakra UI](https://chakra-ui.com/) - UI component library for React.
 - [CoinGecko API](https://coingecko.com/en/api) - Cryptocurrency data API.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Thanks to the teams behind React, Chakra UI, and CoinGecko for providing awesome tools and APIs.
 ```
 
-Remember to replace placeholders like `your-username` and customize the content to match your project's specifics. Also, make sure to adjust the API key handling based on best practices for environment variable management and security.
